@@ -1,0 +1,9 @@
+---
+- name: "Gather hcloud network info."
+  hetzner.hcloud.hcloud_network_info:
+    api_token: "{{ hcloud_network_api_token_ro }}"
+  register: register_network
+
+- name: "Display network info."
+  debug:
+    var: register_network

@@ -1,0 +1,36 @@
+---
+- name: "Ensure private networks are present."
+  hetzner.hcloud.hcloud_network:
+    api_token: "{{ hcloud_network_api_token_rw }}"
+    name: "{{ net.name }}"
+    ip_range: "{{ net.ip_range }}"
+    state: "{{ net.state }}"
+  register: register_network_creation
+  loop: "{{ hcloud_network_private_networks }}"
+  loop_control:
+    loop_var: net
+    label: "{{ net.name }}"
+
+- name: "Debug network creation."
+  debug:
+    var: register_network_creation
+
+- name: "Ensure private subnetworks are present."
+  hetzner.hcloud.hcloud_subnetwork:
+    api_token: "{{ hcloud_network_api_token_rw }}"
+    network: "{{ subnet.network }}"
+    ip_range: "{{ subnet.ip_range }}"
+    network_zone: eu-central
+    type: cloud
+    state: "{{ subnet.state }}"
+  register: register_subnet_creation
+  loop: "{{ hcloud_network_private_subnets }}"
+  loop_control:
+    loop_var: subnet
+    label: "{{ subnet.ip_range }}"
+  check_mode: false
+
+- name: "Debug subnetwork creation."
+  debug:
+    var: register_subnet_creation
+  check_mode: false

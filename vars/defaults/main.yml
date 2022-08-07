@@ -1,0 +1,26 @@
+---
+# defaults file for hcloud_networks
+
+# api token(s), optional rw-ro separation
+hcloud_network_api_token_rw: "secret"
+hcloud_network_api_token_ro: "{{ hcloud_network_api_token_rw }}"
+
+# network definitions
+
+hcloud_network_private_networks: []
+
+  # - name: internal_net
+  #   ip_range: 10.0.0.0/16
+  #   state: absent
+
+ # subnet definitions
+
+hcloud_network_private_subnets: []
+
+  # - network: internal_net
+  #   ip_range: 10.0.1.0/24
+  #   state: absent
+
+  # - network: internal_net
+  #   ip_range: 10.0.2.0/24
+  #   state: absent

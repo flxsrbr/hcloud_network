@@ -1,0 +1,10 @@
+---
+# tasks file for hcloud_networks
+
+- import_tasks: hcloud-network-provision.yml
+  tags:
+    - provision
+
+- import_tasks: hcloud-network-info.yml
+  tags:
+    - info
