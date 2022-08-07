@@ -1,4 +1,4 @@
-hcloud_networks
+hcloud_network
 =========
 
 Role to provision networks and subnets on Hetzner Cloud.
@@ -39,6 +39,7 @@ Tags
 
 | Tag                    | Description                                 |
 |------------------------|---------------------------------------------|
+| provsion               | Only run provisioning tasks                 |
 | info                   | Only get info on current networks           |
 
 Dependencies
@@ -55,7 +56,7 @@ Example Playbook
 
       roles:
 
-        - name: hcloud_networks
+        - name: flxsrbr.hcloud_network
           vars:
             hcloud_network_api_token_rw: "{{ vault_hcloud_token_rw }}"
             hcloud_network_api_token_ro: "{{ vault_hcloud_token_ro }}"
