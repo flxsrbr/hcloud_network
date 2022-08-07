@@ -14,10 +14,10 @@ Role Variables
 
 **Default Variables**
 
-| Variable                     | Type | Description                                                        | Default                      |   |
-|------------------------------|------|--------------------------------------------------------------------|------------------------------|---|
-| hcloud_network_api_token_rw  | str  | Read-write Hetzner Cloud api token                                 | -                            |   |
-| hcloud_network_api_token_ro  | str  | Read-only Hetzner Cloud api token, defaults to rw-token if not set | hcloud_network_api_token_rw  |   |
+| Variable                     | Type | Description                                                        | Default                      |
+|------------------------------|------|--------------------------------------------------------------------|------------------------------|
+| hcloud_network_api_token_rw  | str  | Read-write Hetzner Cloud api token                                 | -                            |
+| hcloud_network_api_token_ro  | str  | Read-only Hetzner Cloud api token, defaults to rw-token if not set | hcloud_network_api_token_rw  |
 
 **Network defining variables** 
 
@@ -34,6 +34,12 @@ These values are not predefined and need to be set as parameters when calling th
 |                                  | ip_range | str      | IP range of internal subnet.     | 10.0.0.1/24     |
 |                                  | state    | str      | State of internal subnet.        | present, absent |
 
+Tags
+----
+
+| Tag                    | Description                                 |
+|------------------------|---------------------------------------------|
+| info                   | Only get info on current networks           |
 
 Dependencies
 ------------
